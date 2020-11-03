@@ -125,6 +125,13 @@ def main(argv):
               'A$\\cdot$IS$\\cdot$L1', 'A$\\cdot$KL$\\cdot$L1', 'A$\\cdot$QD$\\cdot$1',
               'GLA', 'FGLA', 'GLADMM', 'INIT'         
             ]
+    GD_algs = [('b05','right',1e-1,1),('b05','left',1e-6,1),
+           ('KL','right',1e-4,1),('KL','left',1e-1,1),
+           ('l2','left',1,1),
+           ('IS','right',1e-8,2),
+           ('b05','right',1e-3,2),('b05','left',1e-5,2),
+           ('KL', 'right', 1e-1,2),('KL', 'left', 1e-1,2),
+           ('l2','left',1e-5,2)]
     other_algs=['GLA', 'FGLA', 'GLADMM', 'INIT']
     algs = GD_algs + ADMM_algs + other_algs
     colors = 5*['mediumturquoise']+(len(GD_algs)-5)*['darkcyan']+len(ADMM_algs)*['orangered']+3*['gold']+['white']
