@@ -3,3 +3,12 @@ You will find here the code related to the _Phase retrieval with Bregman diverge
 
 To run the phase retrieval experiment with exact spectrograms, please run the ``main_PR.py`` script. For the phase retrieval experiment with modified spectrograms, please run ``main_PRMod.py``.
 Figures can be generated with ``plotter_PR.py`` and ``plotter_PRMod.py`` scripts.
+A demonstration can be run with ``demo.py``.
+
+The following Python librairies are necessary to run the code properly:
+- [Librosa](https://librosa.org/)
+- [Numpy](https://numpy.org/)
+- [Scipy](https://www.scipy.org/)
+- [Matplotlib](https://matplotlib.org/)
+- [Pystoi](https://pypi.org/project/pystoi/)
+- [Tqdm](https://github.com/tqdm/tqdm)
