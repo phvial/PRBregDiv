@@ -29,11 +29,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, 'hd:n:f:', ['dataset=', 'niter='])
     except getopt.GetoptError:
-        print('test.py -d <dataset> -n <number of iterations> -f <number of files>')
+        print('main_PR.py -d <dataset> -n <number of iterations> -f <number of files>')
         sys.exit(2)
     for opt, arg in opts:
         if opt =='-h':
-            print('test.py -d <dataset> -n <number of iterations> -f <number of files>')
+            print('main_PR.py -d <dataset> -n <number of iterations> -f <number of files>')
             sys.exit()    
         elif opt in ['-d', '--dataset']:
             database = arg

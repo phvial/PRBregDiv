@@ -44,16 +44,16 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, 'hp:m:f:s:', ['path=', 'metric='])
     except getopt.GetoptError:
-        print('plotter_PR.py -p <path> -m <metric> -f <number of files> -s <input SNR in dB>')
+        print('plotter_PRMod.py -p <path> -m <metric> -f <number of files> -s <input SNR in dB>')
         sys.exit(2)
     for opt, arg in opts:
         if opt =='-h':
-            print('plotter_PR.py -p <path> -m <metric> -f <number of files> -s <input SNR in dB>')
+            print('plotter_PRMod.py -p <path> -m <metric> -f <number of files> -s <input SNR in dB>')
             sys.exit()    
         elif opt in ['-p', '--path']:
             sig_path = arg+'/'
         elif opt in ['-m', '--metric']:
-            divs = [(arg, None, 1)]
+            divs = [arg]
         elif opt in ['-f']:
             n_files = int(arg)
         elif opt in ['-s']:
@@ -100,11 +100,11 @@ def main(argv):
         ax.yaxis.grid(True)
         plt.xticks(rotation=30, fontweight='demi')
         plt.yticks(fontweight='demi')
-        if divs[k][0]=='stoi':
+        if divs[k]=='stoi':
             btt = np.min(distmat[:,-1,k])
             plt.ylim(bottom= btt - 0.01*np.abs(btt))
             fig.savefig(sig_path+'%s_%s.pdf'%(snrdB, divs[k]), bbox_inches='tight', pad_inches=0)
-        elif divs[k][0]=='sli_snr':
+        elif divs[k]=='sli_snr':
             fig, ax = plt.subplots(figsize=(18,9))
             bplot = ax.boxplot(impmat[:,:,k], patch_artist=True, showfliers=False,
                                showmeans=True, labels=labels[:-1], 

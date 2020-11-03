@@ -30,11 +30,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, 'hd:n:f:s:', ['dataset=', 'niter=', 'snr='])
     except getopt.GetoptError:
-        print('test.py -d <dataset> -n <number of iterations> -f <number of files> -s <input SNR in dB>')
+        print('main_PRMod.py -d <dataset> -n <number of iterations> -f <number of files> -s <input SNR in dB>')
         sys.exit(2)
     for opt, arg in opts:
         if opt =='-h':
-            print('test.py -d <dataset> -n <number of iterations> -f <number of files> -s <input SNR in dB>')
+            print('main_PRMod.py -d <dataset> -n <number of iterations> -f <number of files> -s <input SNR in dB>')
             sys.exit()    
         elif opt in ['-d', '--dataset']:
             database = arg

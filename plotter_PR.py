@@ -52,7 +52,7 @@ def main(argv):
         elif opt in ['-p', '--path']:
             sig_path = arg+'/'
         elif opt in ['-m', '--metric']:
-            divs = [(arg, None, 1)]
+            divs = [arg]
         elif opt in ['-f']:
             n_files = int(arg)
      
@@ -97,7 +97,7 @@ def main(argv):
         ax.yaxis.grid(True)
         plt.xticks(rotation=30, fontweight='demi')
         plt.yticks(fontweight='demi')
-        if divs[k][0]=='sc':
+        if divs[k]=='sc':
             tpp = np.max(distmat[:,-1,k])
             btt = np.min(distmat[:,:,k])
             plt.ylim(top=1.05*tpp, bottom = 0.9*btt)
@@ -107,11 +107,11 @@ def main(argv):
             plt.yticks(fontweight='demi')
             plt.grid(True,which="minor", axis='y', linestyle='--')
             fig.savefig(sig_path+'log_%s.pdf'%(divs[k]), bbox_inches='tight', pad_inches=0)
-        elif divs[k][0]=='stoi':
+        elif divs[k]=='stoi':
             btt = np.min(distmat[:,-1,k])
             plt.ylim(bottom= btt - 0.01*np.abs(btt))
             fig.savefig(sig_path+'%s.pdf'%(divs[k]), bbox_inches='tight', pad_inches=0)
-        elif divs[k][0]=='sli_snr':
+        elif divs[k]=='sli_snr':
             fig, ax = plt.subplots(figsize=(18,9))
             bplot = ax.boxplot(impmat[:,:,k], patch_artist=True, showfliers=False,
                                showmeans=True, labels=labels[:-1], 
